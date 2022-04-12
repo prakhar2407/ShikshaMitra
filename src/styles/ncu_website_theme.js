@@ -12,5 +12,10 @@ export const Maintheme = createTheme({
       secondary: {
         main: ncuSecondaryColor,
       },
+      ovverides: {
+          MuiButton: {
+
+          }
+      }
     },
   });

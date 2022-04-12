@@ -12,6 +12,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import {NCU_WEB_URL} from '../../../config/CONSTANT.js';
 import { Maintheme } from '../../../styles/ncu_website_theme.js';
 import {Link as RouterLink} from "react-router-dom";
+import "./register.css"
+import GoogleIcon from '@mui/icons-material/Google';
+import { Google } from '@mui/icons-material';
+// import { white } from '@mui/material/colors';
 
 function Copyright(props) {
   return (
@@ -24,8 +28,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-// const theme = createTheme();
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -107,6 +109,16 @@ export default function SignUp() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign Up
+            </Button>
+            <Button
+              startIcon={<GoogleIcon/>}
+              className='google-button'
+              type="submit"
+              fullWidth
+              variant="outlined"
+              sx={{ mt: 0, mb: 2  }}
+            >
+              Register With Google
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

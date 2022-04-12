@@ -16,6 +16,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import {NCU_WEB_URL} from '../../../config/CONSTANT.js';
 import { Maintheme } from '../../../styles/ncu_website_theme.js';
 import {Link as RouterLink} from "react-router-dom";
+import GoogleIcon from '@mui/icons-material/Google';
 
 function Copyright(props) {
   return (
@@ -89,6 +90,16 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button
+              startIcon={<GoogleIcon/>}
+              className='google-button'
+              type="submit"
+              fullWidth
+              variant="outlined"
+              sx={{ mt: 0, mb: 2  }}
+            >
+              Login With Google
             </Button>
             <Grid container>
               <Grid item xs>
