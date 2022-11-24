@@ -18,11 +18,13 @@ import {
   Link,
 } from "@mui/material";
 import { Color, ERROR_MESSAGE, UI_TEXT, URL } from "../../../config/CONSTANT";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import REGEX_PATTERN from "../../../config/REGEX";
 import { postRequest } from "../../../services";
 import "../../../styles/styles.css";
 import SnackBarLocal from "../../../components/SnackBar/SnackBarLocal";
+import { setCredentials } from "../../../hooks/authSlice";
+import { useDispatch } from "react-redux";
 
 export function requestDTO(formData, email, base64Encode) {
   return { ...formData, email, password: base64Encode };
@@ -35,6 +37,8 @@ export default function Signin() {
     setValue,
     formState: { errors },
   } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [opensnackbar, setSnackbarOpen] = useState({
@@ -70,6 +74,8 @@ export default function Signin() {
           message: res.message,
           severity: "success",
         });
+        dispatch(setCredentials(res));
+        navigate("/welcome");
       })
       .catch((err) => {
         setSnackbarOpen({
